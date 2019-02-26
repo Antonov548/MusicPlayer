@@ -14,10 +14,10 @@ void CustomHeader::createUI()
 
     btn_hide.setObjectName("btnHide");
     btn_close.setObjectName("btnClose");
-    btn_fullscreen.setObjectName("btnFullScreen");
+    //btn_close.setMinimumSize(20,20);
+    //btn_hide.setMinimumSize(20,20);
     btn_hide.setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Preferred);
     btn_close.setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Preferred);
-    btn_fullscreen.setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Preferred);
 
     setStyleSheet("QWidget{"
                   "background-color: rgb(45, 45, 45)"
@@ -26,14 +26,19 @@ void CustomHeader::createUI()
                   "border: none;"
                   "border-width: 0px;"
                   "}"
-                  "QPushButton#btnHide:hover{"
-                  "background-color: rgb(58,58,58)"
+                  "QPushButton#btnHide{"
+                  "image: url(:/icons/min_w.png)"
                   "}"
-                  "QPushButton#btnFullScreen:hover{"
-                  "background-color: rgb(58,58,58)"
+                  "QPushButton#btnHide:hover{"
+                  "background-color: rgb(74,74,74);"
+                  "image: url(:/icons/min_w_hover.png)"
+                  "}"
+                  "QPushButton#btnClose{"
+                  "image: url(:/icons/close.png);"
                   "}"
                   "QPushButton#btnClose:hover{"
-                  "background-color: rgb(171,34,48)"
+                  "image: url(:/icons/close_hover.png);"
+                  "background-color: rgb(191,32,32)"
                   "}");
 
     QSpacerItem* header_spacer = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
@@ -44,7 +49,6 @@ void CustomHeader::createUI()
     //window header layout
     hor_header_layout->addItem(header_spacer);
     hor_header_layout->addWidget(&btn_hide);
-    hor_header_layout->addWidget(&btn_fullscreen);
     hor_header_layout->addWidget(&btn_close);
     hor_header_layout->setMargin(0);
     hor_header_layout->setSpacing(0);

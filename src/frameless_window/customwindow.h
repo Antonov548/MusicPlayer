@@ -26,7 +26,10 @@ private:
 
     QGridLayout grd_main_layout;
 
+    QGraphicsDropShadowEffect shadow;
+
     void move(int dx, int dy);
+    void setCustomWindowState(Qt::WindowState state);
     void createUI();
     void windowResize(CustomWidget::Direction direct, int dx);
 };

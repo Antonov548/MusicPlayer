@@ -26,14 +26,14 @@ CONFIG += c++11
 
 SOURCES += \
         src/main.cpp \
-    src/customwindow.cpp \
-    src/customheader.cpp \
-    src/customwidget.cpp
+    src/frameless_window/customwindow.cpp \
+    src/frameless_window/customheader.cpp \
+    src/frameless_window/customwidget.cpp
 
 HEADERS += \
-    src/customwindow.h \
-    src/customheader.h \
-    src/customwidget.h
+    src/frameless_window/customwindow.h \
+    src/frameless_window/customheader.h \
+    src/frameless_window/customwidget.h
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
@@ -42,3 +42,5 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 
 RESOURCES += \
     res.qrc
+
+DISTFILES +=

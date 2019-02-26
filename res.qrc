@@ -1,3 +1,9 @@
 <RCC>
-    <qresource prefix="/"/>
+    <qresource prefix="/">
+        <file>back.png</file>
+        <file>icons/close.png</file>
+        <file>icons/close_hover.png</file>
+        <file>icons/min_w.png</file>
+        <file>icons/min_w_hover.png</file>
+    </qresource>
 </RCC>

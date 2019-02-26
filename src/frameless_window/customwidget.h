@@ -30,10 +30,6 @@ private:
     QPoint press_position;
     Direction curr_direction;
 
-    QRectF rectBottom;
-    QRectF rectLeft;
-    QRectF rectRight;
-
     Direction getDirection(QMouseEvent* event);
     void createUI();
 

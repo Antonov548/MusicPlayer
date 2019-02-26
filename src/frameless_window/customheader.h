@@ -32,7 +32,6 @@ private:
 
     QPushButton btn_close;
     QPushButton btn_hide;
-    QPushButton btn_fullscreen;
 
     bool is_pressed;
     QPoint press_position;
