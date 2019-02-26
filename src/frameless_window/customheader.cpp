@@ -14,8 +14,6 @@ void CustomHeader::createUI()
 
     btn_hide.setObjectName("btnHide");
     btn_close.setObjectName("btnClose");
-    //btn_close.setMinimumSize(20,20);
-    //btn_hide.setMinimumSize(20,20);
     btn_hide.setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Preferred);
     btn_close.setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Preferred);
 
@@ -38,7 +36,7 @@ void CustomHeader::createUI()
                   "}"
                   "QPushButton#btnClose:hover{"
                   "image: url(:/icons/close_hover.png);"
-                  "background-color: rgb(191,32,32)"
+                  "background-color: rgb(233,37,57)"
                   "}");
 
     QSpacerItem* header_spacer = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);

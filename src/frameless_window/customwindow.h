@@ -6,6 +6,7 @@
 #include <QGridLayout>
 #include <QGraphicsDropShadowEffect>
 #include <QGraphicsOpacityEffect>
+#include <QPropertyAnimation>
 #include "customheader.h"
 #include "customwidget.h"
 
@@ -26,7 +27,8 @@ private:
 
     QGridLayout grd_main_layout;
 
-    QGraphicsDropShadowEffect shadow;
+    QGraphicsOpacityEffect opacity;
+    QPropertyAnimation opacity_animation;
 
     void move(int dx, int dy);
     void setCustomWindowState(Qt::WindowState state);

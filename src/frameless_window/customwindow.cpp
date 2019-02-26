@@ -8,6 +8,7 @@ CustomWindow::CustomWindow(QWidget *parent) : QWidget(parent)
     connect(&wgt_header, &CustomHeader::changeWindowState, this, &CustomWindow::setCustomWindowState);
     connect(&wgt_header, &CustomHeader::signalMove, this, &CustomWindow::move);
     connect(&wgt_content, &CustomWidget::signalResize, this, &CustomWindow::windowResize);
+    connect(&opacity_animation, &QPropertyAnimation::finished, this, [=](){setWindowState(Qt::WindowState::WindowMinimized); opacity.setOpacity(1);});
 }
 
 void CustomWindow::setContent(QLayout *layout)
@@ -24,7 +25,7 @@ void CustomWindow::setCustomWindowState(Qt::WindowState state)
 {
     switch (state) {
     case Qt::WindowState::WindowMinimized:
-        setWindowState(Qt::WindowState::WindowMinimized);
+        opacity_animation.start();
         break;
     default:
         break;
@@ -75,17 +76,14 @@ void CustomWindow::createUI()
 
     setLayout(&grd_main_layout);
 
-    //add shadow
-    shadow.setBlurRadius(15);
-    shadow.setColor(QColor(19,19,19));
-    shadow.setOffset(0);
-    wgt_content.setGraphicsEffect(&shadow);
-    wgt_content.stackUnder(&wgt_header);
+    opacity.setOpacity(1);
+    setGraphicsEffect(&opacity);
 
-    //TODO : create opacity animation on minimazied
-    /*
-    QGraphicsOpacityEffect* opacity = new QGraphicsOpacityEffect();
-    opacity->setOpacity(0.5);
-    custom_widget.setGraphicsEffect(opacity);
-    */
+    //animation for minimize window
+    opacity_animation.setTargetObject(&opacity);
+    opacity_animation.setPropertyName("opacity");
+    opacity_animation.setDuration(200);
+    opacity_animation.setEasingCurve(QEasingCurve::InCubic);
+    opacity_animation.setStartValue(1.0);
+    opacity_animation.setEndValue(0);
 }
