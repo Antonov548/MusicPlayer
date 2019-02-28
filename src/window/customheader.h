@@ -8,6 +8,7 @@
 #include <QMouseEvent>
 #include <QLabel>
 #include <QFont>
+#include <QSize>
 
 #include <QDebug>
 

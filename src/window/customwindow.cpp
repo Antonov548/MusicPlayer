@@ -42,7 +42,7 @@ void CustomWindow::windowResize(CustomWidget::Direction direct, int dx)
         setGeometry(x(),y(),width(),height()+dx);
         break;
     case CustomWidget::Left:
-        if(width() + dx/4 < minimumWidth())
+        if(width() + dx/4 <= minimumWidth())
             break;
         setGeometry(x() - dx, y(), width() + dx, height());
         break;
@@ -61,7 +61,7 @@ void CustomWindow::createUI()
     setMouseTracking(true);
     setWindowFlags(Qt::FramelessWindowHint);
     setAttribute(Qt::WA_TranslucentBackground);
-    setMinimumSize(400,400);
+    setMinimumSize(500,500);
     setObjectName("custom_window");
     //setGeometry(0,0,1000,500);
 

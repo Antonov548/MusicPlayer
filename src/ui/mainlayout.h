@@ -2,7 +2,11 @@
 
 #include <QObject>
 #include <QGridLayout>
+#include <QVBoxLayout>
+#include <QSpacerItem>
 #include <QPushButton>
+
+#include "musiccontrol.h"
 
 class MainLayout : public QObject
 {
@@ -17,6 +21,8 @@ public slots:
 
 private:
     QGridLayout main_layout;
+    QVBoxLayout v_layout;
+    MusicControl music_control;
 
     void createUI();
 };

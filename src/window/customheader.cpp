@@ -14,11 +14,17 @@ void CustomHeader::createUI()
 
     btn_hide.setObjectName("btnHide");
     btn_close.setObjectName("btnClose");
+
+    QSize btn_size(23,23);
+
+    btn_close.setMinimumSize(btn_size);
+    btn_hide.setMinimumSize(btn_size);
+
     btn_hide.setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Preferred);
     btn_close.setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Preferred);
 
     setStyleSheet("QWidget{"
-                  "background-color: rgb(45, 45, 45)"
+                  "background-color: rgb(41, 41, 41)"
                   "}"
                   "QPushButton{"
                   "border: none;"

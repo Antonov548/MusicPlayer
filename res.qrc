@@ -1,6 +1,5 @@
 <RCC>
     <qresource prefix="/">
-        <file>back.png</file>
         <file>icons/close.png</file>
         <file>icons/close_hover.png</file>
         <file>icons/min_w.png</file>
