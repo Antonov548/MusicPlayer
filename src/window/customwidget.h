@@ -10,7 +10,7 @@ class CustomWidget : public QWidget
     Q_OBJECT
 public:
     explicit CustomWidget(QWidget *parent = nullptr);
-    void setMainLayout(QLayout* layout);
+    void setMainLayout(QLayout *layout);
 
     enum Direction{
         Left,

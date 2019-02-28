@@ -8,7 +8,7 @@ QT       += core gui
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
-TARGET = FramelessWindow
+TARGET = MusicPlayer
 TEMPLATE = app
 
 # The following define makes your compiler emit warnings if you use
@@ -26,14 +26,16 @@ CONFIG += c++11
 
 SOURCES += \
         src/main.cpp \
-    src/frameless_window/customwindow.cpp \
-    src/frameless_window/customheader.cpp \
-    src/frameless_window/customwidget.cpp
+    src/window/customwindow.cpp \
+    src/window/customheader.cpp \
+    src/window/customwidget.cpp \
+    src/ui/mainlayout.cpp
 
 HEADERS += \
-    src/frameless_window/customwindow.h \
-    src/frameless_window/customheader.h \
-    src/frameless_window/customwidget.h
+    src/window/customwindow.h \
+    src/window/customheader.h \
+    src/window/customwidget.h \
+    src/ui/mainlayout.h
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

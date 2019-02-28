@@ -4,9 +4,8 @@
 #include <QVBoxLayout>
 #include <QHBoxLayout>
 #include <QGridLayout>
-#include <QGraphicsDropShadowEffect>
-#include <QGraphicsOpacityEffect>
 #include <QPropertyAnimation>
+#include <QGraphicsOpacityEffect>
 #include "customheader.h"
 #include "customwidget.h"
 
@@ -15,7 +14,7 @@ class CustomWindow : public QWidget
     Q_OBJECT
 public:
     explicit CustomWindow(QWidget *parent = nullptr);
-    void setContent(QLayout* layout);
+    void setContent(QLayout *layout);
 
 signals:
 
@@ -25,7 +24,7 @@ private:
     CustomHeader wgt_header;
     CustomWidget wgt_content;
 
-    QGridLayout grd_main_layout;
+    QGridLayout grd_layout;
 
     QGraphicsOpacityEffect opacity;
     QPropertyAnimation opacity_animation;

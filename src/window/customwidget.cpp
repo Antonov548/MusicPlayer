@@ -19,9 +19,9 @@ CustomWidget::Direction CustomWidget::getDirection(QMouseEvent *event)
     int height_rect = back_widget.height();
 
     //rects for mouse arrows
-    QRectF rectBottom(x_rect + 9, y_rect + height_rect - 10, width_rect - 18, 10);
-    QRectF rectLeft(x_rect, y_rect + 9, 7, height_rect - 18);
-    QRectF rectRight(x_rect + width_rect - 7, y_rect + 9, 7, height_rect - 18);
+    QRectF rectBottom(x_rect + 9, y_rect + height_rect - 8, width_rect - 18, 8);
+    QRectF rectLeft(x_rect, y_rect + 8, 8, height_rect - 18);
+    QRectF rectRight(x_rect + width_rect - 8, y_rect + 9, 8, height_rect - 18);
 
     if (rectBottom.contains(position)) {
         back_widget.setCursor(Qt::SizeVerCursor);
@@ -41,7 +41,7 @@ void CustomWidget::createUI()
 {
     //tracking mouse move on widget and backgroud
     setMouseTracking(true);
-    back_widget.setStyleSheet(QStringLiteral("background-color: rgb(27, 27, 27);"));
+    back_widget.setStyleSheet("background-color: rgb(27, 27, 27)");
     back_widget.setMouseTracking(true);
 
     QGridLayout *grid_layout = new QGridLayout(this);

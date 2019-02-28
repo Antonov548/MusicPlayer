@@ -13,7 +13,7 @@ CustomWindow::CustomWindow(QWidget *parent) : QWidget(parent)
 
 void CustomWindow::setContent(QLayout *layout)
 {
-    wgt_content.setLayout(layout);
+    wgt_content.setMainLayout(layout);
 }
 
 void CustomWindow::move(int dx, int dy)
@@ -61,29 +61,30 @@ void CustomWindow::createUI()
     setMouseTracking(true);
     setWindowFlags(Qt::FramelessWindowHint);
     setAttribute(Qt::WA_TranslucentBackground);
-    setMinimumSize(500,500);
+    setMinimumSize(400,400);
+    setObjectName("custom_window");
     //setGeometry(0,0,1000,500);
 
     //main widget + header widget
     //QGridLayout* grd_custom_layout = new QGridLayout(this);
-    grd_main_layout.setMargin(15);
+    grd_layout.setMargin(0);
     QVBoxLayout* ver_main_layout = new QVBoxLayout;
     ver_main_layout->addWidget(&wgt_header);
     ver_main_layout->addWidget(&wgt_content);
     ver_main_layout->setMargin(0);
     ver_main_layout->setSpacing(0);
-    grd_main_layout.addLayout(ver_main_layout, 0, 0, 1, 1);
+    grd_layout.addLayout(ver_main_layout, 0, 0, 1, 1);
 
-    setLayout(&grd_main_layout);
+    setLayout(&grd_layout);
 
-    opacity.setOpacity(1);
+    //add opacity
+    opacity.setOpacity(1.0);
     setGraphicsEffect(&opacity);
 
-    //animation for minimize window
+    //animation for minimize
     opacity_animation.setTargetObject(&opacity);
     opacity_animation.setPropertyName("opacity");
     opacity_animation.setDuration(200);
-    opacity_animation.setEasingCurve(QEasingCurve::InCubic);
-    opacity_animation.setStartValue(1.0);
+    opacity_animation.setStartValue(1);
     opacity_animation.setEndValue(0);
 }
