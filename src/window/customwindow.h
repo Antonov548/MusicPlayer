@@ -16,6 +16,13 @@ public:
     explicit CustomWindow(QWidget *parent = nullptr);
     void setContent(QLayout *layout);
 
+    enum Direction{
+        Left,
+        Bottom,
+        Right,
+        None
+    };
+
 signals:
 
 public slots:
@@ -29,8 +36,11 @@ private:
     QGraphicsOpacityEffect opacity;
     QPropertyAnimation opacity_animation;
 
+    bool is_pressed;
+    Direction curr_direction;
+    QPoint press_position;
+
     void move(int dx, int dy);
     void setCustomWindowState(Qt::WindowState state);
     void createUI();
-    void windowResize(CustomWidget::Direction direct, int dx);
 };

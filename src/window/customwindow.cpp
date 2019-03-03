@@ -1,13 +1,12 @@
 #include "customwindow.h"
 
-CustomWindow::CustomWindow(QWidget *parent) : QWidget(parent)
+CustomWindow::CustomWindow(QWidget *parent) : QWidget(parent), curr_direction(None)
 {
     createUI();
 
     connect(&wgt_header, &CustomHeader::signalClose, this, &QWidget::close);
     connect(&wgt_header, &CustomHeader::changeWindowState, this, &CustomWindow::setCustomWindowState);
     connect(&wgt_header, &CustomHeader::signalMove, this, &CustomWindow::move);
-    connect(&wgt_content, &CustomWidget::signalResize, this, &CustomWindow::windowResize);
     connect(&opacity_animation, &QPropertyAnimation::finished, this, [=](){setWindowState(Qt::WindowState::WindowMinimized); opacity.setOpacity(1);});
 }
 
@@ -32,30 +31,6 @@ void CustomWindow::setCustomWindowState(Qt::WindowState state)
     }
 }
 
-//resize weindow on signal with direction
-void CustomWindow::windowResize(CustomWidget::Direction direct, int dx)
-{
-    switch (direct) {
-    case CustomWidget::Bottom:
-        if(height() + dx/4 < minimumHeight())
-            break;
-        setGeometry(x(),y(),width(),height()+dx);
-        break;
-    case CustomWidget::Left:
-        if(width() + dx/4 <= minimumWidth())
-            break;
-        setGeometry(x() - dx, y(), width() + dx, height());
-        break;
-    case CustomWidget::Right:
-        if(width() + dx/4 < minimumWidth())
-            break;
-        setGeometry(x(), y(), width() + dx, height());
-        break;
-    case CustomWidget::None:
-        break;
-    }
-}
-
 void CustomWindow::createUI()
 {
     setMouseTracking(true);
@@ -63,7 +38,6 @@ void CustomWindow::createUI()
     setAttribute(Qt::WA_TranslucentBackground);
     setMinimumSize(500,500);
     setObjectName("custom_window");
-    //setGeometry(0,0,1000,500);
 
     //main widget + header widget
     //QGridLayout* grd_custom_layout = new QGridLayout(this);

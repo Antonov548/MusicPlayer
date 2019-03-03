@@ -4,5 +4,9 @@
         <file>icons/close_hover.png</file>
         <file>icons/min_w.png</file>
         <file>icons/min_w_hover.png</file>
+        <file>icons/pause.png</file>
+        <file>icons/play.png</file>
+        <file>icons/prev.png</file>
+        <file>icons/next.png</file>
     </qresource>
 </RCC>
