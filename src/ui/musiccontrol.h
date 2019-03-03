@@ -3,9 +3,12 @@
 #include <QWidget>
 #include <QGridLayout>
 #include <QHBoxLayout>
+#include <QVBoxLayout>
 #include <QSpacerItem>
 #include <QPushButton>
 #include <QMouseEvent>
+#include <QSlider>
+#include <QPropertyAnimation>
 
 class MusicControl : public QWidget
 {
@@ -16,13 +19,15 @@ public:
 signals:
 
 public slots:
-    void pauseClicked();
+    void changePlayStatus(bool isPlay);
 
 private:
     QWidget back_widget;
     QPushButton btn_play;
     QPushButton btn_next;
     QPushButton btn_prev;
+    QSlider prog_slider;
+    QPropertyAnimation slider_animation;
 
     bool is_play;
 
