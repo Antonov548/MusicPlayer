@@ -45,7 +45,7 @@ void MusicControl::createUI()
     btn_prev.setIcon(QIcon(":/icons/prev.png"));
     btn_prev.setIconSize(QSize(30,30));
 
-    prog_slider.setFixedWidth(250);
+    prog_slider.setFixedWidth(200);
     prog_slider.setOrientation(Qt::Horizontal);
 
     QSpacerItem* spacer_l = new QSpacerItem(0, 0, QSizePolicy::Expanding, QSizePolicy::Minimum);
@@ -59,7 +59,7 @@ void MusicControl::createUI()
     h_layout->addWidget(&prog_slider);
     h_layout->addItem(spacer_r);
     h_layout->setSpacing(0);
-    h_layout->setContentsMargins(20,0,0,0);
+    h_layout->setContentsMargins(20, 0, 20, 0);
 
     QGridLayout *grd_layout = new QGridLayout(this);
     back_widget.setStyleSheet("QWidget{"
@@ -96,4 +96,3 @@ void MusicControl::createUI()
     slider_animation.setEndValue(100);
     slider_animation.setDuration(5000);
 }
-

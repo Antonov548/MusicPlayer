@@ -30,14 +30,16 @@ SOURCES += \
     src/window/customheader.cpp \
     src/window/customwidget.cpp \
     src/ui/mainlayout.cpp \
-    src/ui/musiccontrol.cpp
+    src/ui/musiccontrol.cpp \
+    src/ui/musicslider.cpp
 
 HEADERS += \
     src/window/customwindow.h \
     src/window/customheader.h \
     src/window/customwidget.h \
     src/ui/mainlayout.h \
-    src/ui/musiccontrol.h
+    src/ui/musiccontrol.h \
+    src/ui/musicslider.h
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

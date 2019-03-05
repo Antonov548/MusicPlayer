@@ -6,9 +6,10 @@
 #include <QVBoxLayout>
 #include <QSpacerItem>
 #include <QPushButton>
-#include <QMouseEvent>
 #include <QSlider>
 #include <QPropertyAnimation>
+
+#include "musicslider.h"
 
 class MusicControl : public QWidget
 {
@@ -26,7 +27,7 @@ private:
     QPushButton btn_play;
     QPushButton btn_next;
     QPushButton btn_prev;
-    QSlider prog_slider;
+    MusicSlider prog_slider;
     QPropertyAnimation slider_animation;
 
     bool is_play;
